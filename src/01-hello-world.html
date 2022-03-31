@@ -8,16 +8,24 @@
   </head>
   <body>
     <div id="app">
-      <div v-if="level > 0 && level < 50">Studing Vuejs</div>
-      <div v-else-if="level >= 50">On fire Vuejs</div>
-      <div v-else>Starting on Vuejs</div>
+      <h1>{{title}}</h1>
+      <ul>
+        <li v-for="(serie, index) in series">
+          {{index+1}} - {{serie.name}} ({{serie.release_date}})
+        </li>
+      </ul>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
       Vue.createApp({
         data() {
           return {
-            level: 32,
+            title: "Tv Series",
+            series: [
+              { name: "How I meet your mother", release_date: "17/04/2014" },
+              { name: "Suits", release_date: "17/04/2014" },
+              { name: "Arrow", release_date: "23/09/2016" },
+            ],
           };
         },
       }).mount("#app");
