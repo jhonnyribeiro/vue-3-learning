@@ -7,13 +7,16 @@
     <title>Hello World on Vuejs 3</title>
   </head>
   <body>
-    <div id="app">{{title}}</div>
+    <div id="app">
+      <div v-show="showTitle">{{title}}</div>
+    </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
       Vue.createApp({
         data() {
           return {
             title: "Hello World on Vuejs 3",
+            showTitle: true,
           };
         },
       }).mount("#app");
