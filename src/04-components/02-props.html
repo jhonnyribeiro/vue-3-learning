@@ -28,8 +28,8 @@
 
     <template id="card">
         <div class="card shadow-sm">
-            <card-image></card-image>
-            <div class="card-body">
+            <card-image :image="cardImage"></card-image>
+            <div class=" card-body">
                 <card-description :description="cardDescription"></card-description>
                 <card-actions></card-actions>
             </div>
@@ -37,11 +37,8 @@
     </template>
 
     <template id="cardImage">
-        <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg"
-            role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#55595c"></rect><text x="50%" y="50%" fill="#eceeef"
-                dy=".3em">Thumbnail</text>
+        <img :src="image" alt="" srcset="" class="card-img-top">
+        <title>Placeholder</title>
         </svg>
     </template>
 
@@ -72,7 +69,8 @@
         app.component('card', {
             data() {
                 return {
-                    cardDescription: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer."
+                    cardDescription: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
+                    cardImage: 'https://via.placeholder.com/300x150'
                 };
             },
             template: '#card',
@@ -80,6 +78,7 @@
 
         app.component('card-image', {
             template: '#cardImage',
+            props: ['image'],
         });
 
         app.component('card-description', {
