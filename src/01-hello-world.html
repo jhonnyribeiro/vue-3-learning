@@ -9,6 +9,7 @@
   <body>
     <div id="app">
       <div v-if="showTitle">{{title}}</div>
+      <div v-else-if="showTitle2">{{title2}}</div>
       <div v-else>else block</div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
@@ -17,7 +18,9 @@
         data() {
           return {
             title: "Hello World on Vuejs 3",
-            showTitle: true,
+            title2: "on fire",
+            showTitle: false,
+            showTitle2: false,
           };
         },
       }).mount("#app");
