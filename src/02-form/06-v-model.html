@@ -30,6 +30,11 @@
               publishing software like Aldus PageMaker including versions of
               Lorem Ipsum.
             </p>
+            <div class="mb-3">
+              <label for="">Nome completo:</label>
+              <input type="text" class="form-control" v-model="name" />
+              {{name}}
+            </div>
           </div>
         </div>
       </div>
@@ -40,6 +45,7 @@
         data() {
           return {
             title: "Tv Series",
+            name: "John Snow",
           };
         },
       }).mount("#app");
