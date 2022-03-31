@@ -8,8 +8,8 @@
   </head>
   <body>
     <div id="app">
-      <div v-show="showTitle">{{title}}</div>
       <div v-if="showTitle">{{title}}</div>
+      <div v-else>else block</div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
@@ -17,7 +17,7 @@
         data() {
           return {
             title: "Hello World on Vuejs 3",
-            showTitle: false,
+            showTitle: true,
           };
         },
       }).mount("#app");
