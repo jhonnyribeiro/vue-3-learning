@@ -20,13 +20,13 @@
             <div class="row g-3">
               <div class="col-sm-6">
                 <label for="firstName" class="form-label">Primeiro nome</label>
-                <input v-model="firstName" type="text" class="form-control" />
+                <input v-model.trim="firstName" type="text" class="form-control" />
                 {{ firstName }}
               </div>
 
               <div class="col-sm-6">
                 <label for="lastName" class="form-label">Sobrenome</label>
-                <input v-model="lastName" type="text" class="form-control" />
+                <input v-model.lazy="lastName" type="text" class="form-control" />
                 {{ lastName }}
               </div>
 
