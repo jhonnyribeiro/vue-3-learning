@@ -74,6 +74,7 @@
                 <div class="col-md-12">
                   <div class="form-check">
                     <input
+                      v-model="billAddress"
                       type="checkbox"
                       class="form-check-input"
                       id="same-address"
@@ -83,6 +84,7 @@
                       cobrança</label
                     >
                   </div>
+                  {{billAddress}}
                 </div>
               </div>
 
@@ -132,6 +134,40 @@
                 <textarea v-model="message" class="form-control"></textarea>
               </div>
               <span style="white-space: pre-line"> {{message}}</span>
+
+              <h4 class="mb-3">Interesses</h4>
+              <div class="my-3">
+                <div class="form-check">
+                  <input
+                    v-model="interest"
+                    type="checkbox"
+                    value="Futebol"
+                    class="form-check-input"
+                  />
+                  <label class="form-check-label">Futebol</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    v-model="interest"
+                    type="checkbox"
+                    value="Basquete"
+                    class="form-check-input"
+                  />
+                  <label class="form-check-label">Basquete</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    v-model="interest"
+                    type="checkbox"
+                    value="Skate"
+                    class="form-check-input"
+                  />
+                  <label class="form-check-label">Skate</label>
+                </div>
+
+                {{ interest }}
+              </div>
+
               <button class="w-100 btn btn-primary btn-lg" type="submit">
                 Continuar
               </button>
@@ -151,6 +187,8 @@
             address: "",
             zipcode: "",
             message: "",
+            billAddress: false,
+            interest: [],
           };
         },
       }).mount("#app");
