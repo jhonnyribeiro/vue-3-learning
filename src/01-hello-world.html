@@ -8,19 +8,16 @@
   </head>
   <body>
     <div id="app">
-      <div v-if="showTitle">{{title}}</div>
-      <div v-else-if="showTitle2">{{title2}}</div>
-      <div v-else>else block</div>
+      <div v-if="level > 0 && level < 50">Studing Vuejs</div>
+      <div v-else-if="level >= 50">On fire Vuejs</div>
+      <div v-else>Starting on Vuejs</div>
     </div>
     <script src="https://unpkg.com/vue@next"></script>
     <script>
       Vue.createApp({
         data() {
           return {
-            title: "Hello World on Vuejs 3",
-            title2: "on fire",
-            showTitle: false,
-            showTitle2: false,
+            level: 32,
           };
         },
       }).mount("#app");
