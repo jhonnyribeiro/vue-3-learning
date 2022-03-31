@@ -95,10 +95,12 @@
               <div class="my-3">
                 <div class="form-check">
                   <input
+                    v-model="payment"
                     id="credit"
                     name="paymentMethod"
                     type="radio"
                     class="form-check-input"
+                    value="credit-card"
                   />
                   <label class="form-check-label" for="credit"
                     >Cartão de crédito</label
@@ -106,10 +108,12 @@
                 </div>
                 <div class="form-check">
                   <input
+                    v-model="payment"
                     id="debit"
                     name="paymentMethod"
                     type="radio"
                     class="form-check-input"
+                    value="debit-card"
                   />
                   <label class="form-check-label" for="debit"
                     >Cartão de débido</label
@@ -117,13 +121,16 @@
                 </div>
                 <div class="form-check">
                   <input
+                    v-model="payment"
                     id="paypal"
                     name="paymentMethod"
                     type="radio"
                     class="form-check-input"
+                    value="paypal"
                   />
                   <label class="form-check-label" for="paypal">PayPal</label>
                 </div>
+                {{payment}}
               </div>
 
               <hr class="my-4" />
@@ -189,6 +196,7 @@
             message: "",
             billAddress: false,
             interest: [],
+            payment: "",
           };
         },
       }).mount("#app");
