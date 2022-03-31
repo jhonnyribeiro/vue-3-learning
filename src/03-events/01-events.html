@@ -27,7 +27,7 @@
                         -
                     </button>
                     <input v-model="counter" type="text" class="form-control text-center">
-                    <button class="btn btn-outline-secondary" type="button" @click="addOne()">
+                    <button class="btn btn-outline-secondary" type="button" @click="addOne(), redirect()">
                         +
                     </button>
                 </div>
@@ -54,6 +54,9 @@
                         this.counter -= 1
                     }
                 },
+                redirect() {
+                    console.log("redi")
+                }
             }
         }).mount('#app');
     </script>
