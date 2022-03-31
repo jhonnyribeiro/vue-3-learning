@@ -129,9 +129,9 @@
               <h4 class="mb-3">Mensagem</h4>
 
               <div class="my-3">
-                <textarea class="form-control"></textarea>
+                <textarea v-model="message" class="form-control"></textarea>
               </div>
-
+              <span style="white-space: pre-line"> {{message}}</span>
               <button class="w-100 btn btn-primary btn-lg" type="submit">
                 Continuar
               </button>
@@ -150,6 +150,7 @@
             email: "",
             address: "",
             zipcode: "",
+            message: "",
           };
         },
       }).mount("#app");
