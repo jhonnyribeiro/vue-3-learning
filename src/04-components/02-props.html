@@ -21,17 +21,17 @@
     <div id="app">
         <div class="container mt-5">
             <div class="mx-auto" style="width: 400px">
-                <card></card>
+                <card v-for="post in posts" :post="post"></card>
             </div>
         </div>
     </div>
 
     <template id="card">
         <div class="card shadow-sm">
-            <card-image :image="cardImage"></card-image>
+            <card-image :image="post.image"></card-image>
             <div class=" card-body">
-                <card-description :description="cardDescription"></card-description>
-                <card-actions></card-actions>
+                <card-description :description="post.description"></card-description>
+                <card-actions :view="post.view" :edit="post.edit"></card-actions>
             </div>
         </div>
     </template>
@@ -51,8 +51,8 @@
     <template id="cardActions">
         <div class="d-flex justify-content-end align-items-center">
             <div class="btn-group">
-                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                <button v-if="view" type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button v-if="edit" type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
             </div>
         </div>
     </template>
@@ -62,18 +62,22 @@
         const app = Vue.createApp({
             data() {
                 return {
+                    posts: [
+                        { description: 'Descrição 01', image: 'https://via.placeholder.com/300x150', view: true, edit: false },
+                        { description: 'Descrição 02', image: 'https://via.placeholder.com/300x150', view: true, edit: true },
+                        { description: 'Descrição 03', image: 'https://via.placeholder.com/300x150', view: false, edit: false },
+                        { description: 'Descrição 04', image: 'https://via.placeholder.com/300x150', view: true, edit: false },
+                        { description: 'Descrição 05', image: 'https://via.placeholder.com/300x150', view: false, edit: true },
+                        { description: 'Descrição 06', image: 'https://via.placeholder.com/300x150', view: true, edit: false },
+                        { description: 'Descrição 07', image: 'https://via.placeholder.com/300x150', view: true, edit: false },
+                    ]
                 };
             },
         });
 
         app.component('card', {
-            data() {
-                return {
-                    cardDescription: "This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.",
-                    cardImage: 'https://via.placeholder.com/300x150'
-                };
-            },
             template: '#card',
+            props: ['post']
         });
 
         app.component('card-image', {
@@ -84,14 +88,11 @@
         app.component('card-description', {
             template: '#cardDescription',
             props: ['description'],
-            data() {
-                return {
-                }
-            }
         });
 
         app.component('card-actions', {
             template: '#cardActions',
+            props: ['view', 'edit']
         });
 
         app.mount('#app');
