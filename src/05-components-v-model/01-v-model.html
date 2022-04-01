@@ -21,8 +21,8 @@
     <div id="app">
         <div class="container mt-5">
             <div class="mx-auto" style="width: 400px">
-                {{userFather}}
-                <search-user v-model:father="userFather"></search-user>
+                {{firstName}} - {{lastName}}
+                <search-user v-model:first-name="firstName" v-model:last-name="lastName"></search-user>
             </div>
         </div>
     </div>
@@ -30,9 +30,12 @@
     <template id="searchUser">
         <div class="card shadow-sm">
             <div class="card-body">
+                {{firstName}} - {{lastName}}
                 <div class="input-group">
-                    <input type="text" v-model="user" class="form-control" placeholder="Nome do usuário">
-                    <button class="btn btn-outline-secondary" type="button" @click="search">
+                    <input type="text" :value="firstName" @input="onFirstName" class="form-control" placeholder="Nome">
+                    <input type="text" :value="lastName" @input="onLastName" class="form-control"
+                        placeholder="Sobrenome">
+                    <button class="btn btn-outline-secondary" type="button">
                         Pesquisar
                     </button>
                 </div>
@@ -45,7 +48,8 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    userFather: 'Jhow',
+                    firstName: 'Jhow',
+                    lastName: 'Snow',
                 };
             },
 
@@ -55,22 +59,20 @@
 
         app.component('search-user', {
             template: '#searchUser',
-            props: ['father'],
+            props: ['firstName', 'lastName'],
             data() {
                 return {
-                    user: '',
                 };
             },
 
-            created() {
-                this.user = this.father;
-            },
-
             methods: {
-                search() {
-                    this.$emit('update:father', this.user);
+                onFirstName($event) {
+                    this.$emit('update:first-name', $event.target.value)
                 },
-            },
+                onLastName($event) {
+                    this.$emit('update:last-name', $event.target.value)
+                }
+            }
         });
 
         app.mount('#app');
