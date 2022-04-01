@@ -49,8 +49,8 @@
                 return {
                     user: {
                         first_name: 'Jon',
-                        last_name: 'Snow',
-                        age: 35,
+                        // last_name: 'Snow',
+                        // age: 35,
                         hero: true,
                         power: ['Espada Mágica', 'Nunca Morre'],
                         features: { hair: 'long' }
@@ -62,13 +62,22 @@
         app.component('user-profile', {
             props: {
                 firstName: String,
-                lastName: String,
-                age: Number,
+                lastName: {
+                    type: String,
+                    default: ''
+                },
+                age: {
+                    type: Number,
+                    default: 0,
+                },
                 hero: Boolean,
                 power: Array,
                 features: Object,
             },
             // ['firstName', 'lastName', 'age'],
+            created() {
+                console.log(this.lastName);
+            },
 
             data() {
                 return {
