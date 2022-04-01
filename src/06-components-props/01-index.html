@@ -21,7 +21,9 @@
     <div id="app">
         <div class="container mt-5">
             <div class="mx-auto" style="width: 400px">
-                <user-profile :first-name="user.first_name" :last-name="user.last_name" :age="user.age"></user-profile>
+                <user-profile :first-name="user.first_name" :last-name="user.last_name" :age="user.age"
+                    :hero="user.hero" :power="user.power" :features="user.features">
+                </user-profile>
             </div>
         </div>
     </div>
@@ -33,6 +35,9 @@
                 Primeiro nome: {{ firstName }} <br>
                 Sobrenome: {{ lastName }} <br>
                 Idade: {{ age }} <br>
+                Heroi: {{ hero ? 'Sim': 'Não' }} <br>
+                Poderes: {{ power }} <br>
+                Habilidades: {{ features }} <br>
             </div>
         </div>
     </template>
@@ -46,13 +51,24 @@
                         first_name: 'Jon',
                         last_name: 'Snow',
                         age: 35,
+                        hero: true,
+                        power: ['Espada Mágica', 'Nunca Morre'],
+                        features: { hair: 'long' }
                     },
                 };
             },
         });
 
         app.component('user-profile', {
-            props: ['firstName', 'lastName', 'age'],
+            props: {
+                firstName: String,
+                lastName: String,
+                age: Number,
+                hero: Boolean,
+                power: Array,
+                features: Object,
+            },
+            // ['firstName', 'lastName', 'age'],
 
             data() {
                 return {
