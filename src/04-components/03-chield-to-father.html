@@ -30,7 +30,7 @@
         <div class="card shadow-sm">
             <div class="card-body">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Nome do usuário">
+                    <input type="text" v-model="user" class="form-control" placeholder="Nome do usuário">
                     <button class="btn btn-outline-secondary" type="button" @click="search">
                         Pesquisar
                     </button>
@@ -48,8 +48,8 @@
             },
 
             methods: {
-                paiSearch() {
-                    console.log('pai search');
+                paiSearch(user) {
+                    console.log('pai search', user);
                 },
             },
         });
@@ -58,13 +58,13 @@
             template: '#searchUser',
             data() {
                 return {
+                    user: '',
                 };
             },
 
             methods: {
                 search() {
-                    console.log('search');
-                    this.$emit('search');
+                    this.$emit('search', this.user);
                 },
             },
         });
