@@ -45,7 +45,7 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    userFather: '',
+                    userFather: 'Jhow',
                 };
             },
 
@@ -55,10 +55,15 @@
 
         app.component('search-user', {
             template: '#searchUser',
+            props: ['modelValue'],
             data() {
                 return {
                     user: '',
                 };
+            },
+
+            created() {
+                this.user = this.modelValue;
             },
 
             methods: {
