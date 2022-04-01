@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+
+        <user-profile :user="user"></user-profile>
+
+        <br><br>
+
+        {{ fullName }}
+    </div>
+
+    <template id="userProfile">
+        <div>
+            <pre>
+                {{ user }}
+            </pre>
+        </div>
+    </template>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    title: 'Hello World',
+                    firstName: 'Jon',
+                    lastName: 'Snow',
+                    user: {
+                        name: 'Jon Snow',
+                        age: 40,
+                    },
+                };
+            },
+
+            computed: {
+                fullName() {
+                    return `${this.firstName} ${this.lastName}`;
+                },
+            },
+
+            watch: {
+                fullName() {
+                    console.log('FullName alterado.');
+                }
+            },
+        });
+
+        app.component('user-profile', {
+            props: {
+                user: {
+                    type: Object,
+                    default: () => ({}),
+                },
+            },
+
+            watch: {
+                user: {
+                    deep: true,
+                    handler() {
+                        console.log('Usuário foi alterado');
+                    },
+                },
+            },
+
+            template: '#userProfile',
+        });
+
+        const app2 = app.mount('#app');
+    </script>
+</body>
+
+</html>
