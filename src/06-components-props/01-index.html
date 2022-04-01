@@ -22,7 +22,7 @@
         <div class="container mt-5">
             <div class="mx-auto" style="width: 400px">
                 <user-profile :first-name="user.first_name" :last-name="user.last_name" :age="user.age"
-                    :hero="user.hero" :power="user.power" :features="user.features">
+                    :hero="user.hero" :power="user.power" :features="user.features" :color="user.color">
                 </user-profile>
             </div>
         </div>
@@ -38,6 +38,7 @@
                 Heroi: {{ hero ? 'Sim': 'Não' }} <br>
                 Poderes: {{ power }} <br>
                 Habilidades: {{ features }} <br>
+                Cor: {{ color }} <br>
             </div>
         </div>
     </template>
@@ -53,7 +54,8 @@
                         // age: 35,
                         hero: true,
                         power: ['Espada Mágica', 'Nunca Morre'],
-                        features: { hair: 'long' }
+                        features: { hair: 'long' },
+                        color: 'silver',
                     },
                 };
             },
@@ -79,10 +81,16 @@
                     type: Object,
                     default: () => ({}),
                 },
+                color: {
+                    type: String,
+                    validator(value) {
+                        return ['gold', 'silver'].includes(value);
+                    },
+                },
             },
             // ['firstName', 'lastName', 'age'],
             created() {
-                console.log(this.lastName);
+                console.log(this.age);
             },
 
             data() {
