@@ -71,8 +71,14 @@
                     default: 0,
                 },
                 hero: Boolean,
-                power: Array,
-                features: Object,
+                power: {
+                    type: Array,
+                    default: () => [],
+                },
+                features: {
+                    type: Object,
+                    default: () => ({}),
+                },
             },
             // ['firstName', 'lastName', 'age'],
             created() {
