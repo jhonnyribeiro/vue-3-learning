@@ -22,7 +22,7 @@
         <div class="container mt-5">
             <div class="mx-auto" style="width: 400px">
                 {{userFather}}
-                <search-user v-model="userFather"></search-user>
+                <search-user v-model:father="userFather"></search-user>
             </div>
         </div>
     </div>
@@ -55,7 +55,7 @@
 
         app.component('search-user', {
             template: '#searchUser',
-            props: ['modelValue'],
+            props: ['father'],
             data() {
                 return {
                     user: '',
@@ -63,12 +63,12 @@
             },
 
             created() {
-                this.user = this.modelValue;
+                this.user = this.father;
             },
 
             methods: {
                 search() {
-                    this.$emit('update:modelValue', this.user);
+                    this.$emit('update:father', this.user);
                 },
             },
         });
