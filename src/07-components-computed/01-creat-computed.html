@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    >
+    <meta
+        http-equiv="X-UA-Compatible"
+        content="ie=edge"
+    >
+    <title>Computed property</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+
+        {{ fullName }} <br>
+        {{ fullName }} <br>
+        {{ fullName }} <br>
+        {{ fullName }} <br>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    title: 'Computed property',
+                    firstName: 'Jon',
+                    lastName: 'Snow',
+                };
+            },
+
+            computed: {
+                fullName() {
+                    const fullName = `${this.firstName} ${this.lastName}`;
+                    return fullName;
+                },
+            },
+        }).mount('#app');
+    </script>
+</body>
+</html>
