@@ -17,7 +17,7 @@ const routes = [
   },
   { path: "/empresa", component: CompanyView },
   { path: "/a-empresa", redirect: "/empresa" },
-  { path: "/equipe/:member", component: TeamView, name: "team" },
+  { path: "/equipe/:member([a-z]+)", component: TeamView, name: "team" },
 ];
 
 const router = createRouter({
