@@ -6,7 +6,8 @@ import ContactView from "./views/ContactView";
 import CompanyView from "./views/CompanyView";
 
 const routes = [
-  { path: "/", component: HomeView },
+  { path: "/home", component: HomeView, name: "home" },
+  { path: "/", redirect: { name: "home" } },
   {
     path: "/contato",
     component: ContactView,
@@ -14,6 +15,7 @@ const routes = [
     alias: "/off-contact",
   },
   { path: "/empresa", component: CompanyView },
+  { path: "/a-empresa", redirect: "/empresa" },
 ];
 
 const router = createRouter({
