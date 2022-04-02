@@ -7,7 +7,7 @@ import CompanyView from "./views/CompanyView";
 
 const routes = [
   { path: "/", component: HomeView },
-  { path: "/contato", component: ContactView },
+  { path: "/contato", component: ContactView, name: "contact" },
   { path: "/empresa", component: CompanyView },
 ];
 

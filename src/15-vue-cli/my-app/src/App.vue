@@ -5,7 +5,7 @@
     |
     <router-link to="/empresa">Empresa</router-link>
     |
-    <router-link to="/contato">Contato</router-link>
+    <router-link :to="{ name: 'contact' }">Contato</router-link>
   </div>
   <router-view />
 </template>
