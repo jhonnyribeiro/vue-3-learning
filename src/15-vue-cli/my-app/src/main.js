@@ -5,6 +5,7 @@ import HomeView from "./views/HomeView";
 import ContactView from "./views/ContactView";
 import CompanyView from "./views/CompanyView";
 import TeamView from "./views/TeamView";
+import Error404View from "./views/Error404View";
 
 const routes = [
   { path: "/home", component: HomeView, name: "home" },
@@ -18,6 +19,7 @@ const routes = [
   { path: "/empresa", component: CompanyView },
   { path: "/a-empresa", redirect: "/empresa" },
   { path: "/equipe/:member([a-z]+)?", component: TeamView, name: "team" },
+  { path: "/:pathMatch(.*)", component: Error404View },
 ];
 
 const router = createRouter({
