@@ -4,6 +4,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "./views/HomeView";
 import ContactView from "./views/ContactView";
 import CompanyView from "./views/CompanyView";
+import TeamView from "./views/TeamView";
 
 const routes = [
   { path: "/home", component: HomeView, name: "home" },
@@ -16,6 +17,7 @@ const routes = [
   },
   { path: "/empresa", component: CompanyView },
   { path: "/a-empresa", redirect: "/empresa" },
+  { path: "/equipe/:member", component: TeamView, name: "team" },
 ];
 
 const router = createRouter({
