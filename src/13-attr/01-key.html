@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+
+        <ul>
+            <li v-for="(movie, index) in movies" :key="movie.name">
+                {{ index }} - {{ movie.name }} ({{ movie.release_date }})
+                (remover)
+            </li>
+        </ul>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    title: 'Hello World',
+                    movies: [
+                        { name: 'Batman', release_date: '01/03/2010' },
+                        { name: 'Wolverine', release_date: '10/05/2015' },
+                        { name: 'Iron Man', release_date: '23/10/2020' },
+                    ],
+                };
+            },
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
