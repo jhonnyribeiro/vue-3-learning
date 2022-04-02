@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hello World</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+        {{ fullName }}
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const myMixin = {
+            data() {
+                return {
+                    title: 'Title do mixin',
+                    firstName: 'Jon',
+                    lastName: 'snow',
+                };
+            },
+
+            created() {
+                console.log('createdMixin');
+            },
+
+            computed: {
+                fullName() {
+                    console.log('computedMixin');
+                    return `${this.firstName} ${this.lastName}`
+                },
+            },
+
+            methods: {
+                sayHello() {
+                    console.log('sayHelloMixin');
+                },
+            },
+        };
+
+        const app = Vue.createApp({
+            mixins: [myMixin],
+
+            data() {
+                return {
+                    title: 'Hello World',
+                };
+            },
+
+            created() {
+                console.log('createdComponent');
+            },
+
+            computed: {
+                fullName() {
+                    console.log('computedComponent');
+                    return `${this.firstName} ${this.lastName}`
+                },
+            },
+
+            methods: {
+                sayHello() {
+                    console.log('sayHelloComponent');
+                },
+            }
+        }).mount('#app');
+    </script>
+</body>
+
+</html>
