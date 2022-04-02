@@ -14,15 +14,18 @@
         <app-button>
             App Button
         </app-button>
-        <br><br>
+
         <app-button>
             <b>App Button 2</b>
         </app-button>
+
+        <app-button></app-button>
+
     </div>
 
     <template id="appButton">
         <button>
-            <slot></slot>
+            <slot> Default button</slot>
         </button>
     </template>
 
