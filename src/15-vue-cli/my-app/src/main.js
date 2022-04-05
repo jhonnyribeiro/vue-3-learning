@@ -1,9 +1,10 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "./views/HomeView";
+const HomeView = () => import(/* webpackChunName: "home"*/ "./views/HomeView");
+// import HomeView from "./views/HomeView";
 import ContactView from "./views/ContactView";
-import CompanyView from "./views/CompanyView";
+// import CompanyView from "./views/CompanyView";
 import TeamView from "./views/TeamView";
 import Error404View from "./views/Error404View";
 import CompanyHistory from "./views/CompanyHistory";
@@ -27,7 +28,8 @@ const routes = [
   },
   {
     path: "/empresa",
-    component: CompanyView,
+    component: () =>
+      import(/* webpackChunName: "company"*/ "./views/CompanyView"),
     meta: {
       sidebar: true,
     },
