@@ -1,5 +1,6 @@
 <template>
   <div>
+    Show Sidebar: {{ sidebar }}
     <h1>A empresa</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eaque
@@ -18,7 +19,11 @@ export default {
   data() {
     return {};
   },
-
+  computed: {
+    sidebar() {
+      return this.$route.meta.sidebar;
+    },
+  },
   methods: {},
 };
 </script>

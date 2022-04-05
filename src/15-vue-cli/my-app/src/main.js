@@ -20,6 +20,9 @@ const routes = [
   {
     path: "/empresa",
     component: CompanyView,
+    meta: {
+      sidebar: true,
+    },
     children: [
       {
         path: "historia",
