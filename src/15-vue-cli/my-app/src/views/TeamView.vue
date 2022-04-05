@@ -1,6 +1,7 @@
 <template>
   <div>
     <h1>Equipe</h1>
+    {{ member }}
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis eaque
       expedita ipsam nulla praesentium soluta tenetur unde vero! Ea natus quod
@@ -16,6 +17,16 @@ export default {
   data() {
     return {};
   },
+
+  computed: {
+    member() {
+      return this.$route.params.member;
+    },
+  },
+
+  // created() {
+  //   console.log(this.$route.params.member);
+  // },
 
   methods: {},
 };
