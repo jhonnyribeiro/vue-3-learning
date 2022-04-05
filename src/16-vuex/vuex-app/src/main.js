@@ -9,11 +9,17 @@ const store = createStore({
       first_name: "Jhon",
       last_name: "snow",
       email: "js@local.com",
+      counter: 0,
     };
   },
 
-  mutation: {
-    updateName() {},
+  mutations: {
+    increment(state) {
+      state.counter += 1;
+    },
+    decrement(state) {
+      state.counter -= 1;
+    },
   },
 });
 
