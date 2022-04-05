@@ -14,11 +14,11 @@ const store = createStore({
   },
 
   mutations: {
-    increment(state) {
-      state.counter += 1;
+    increment(state, value) {
+      state.counter += value;
     },
-    decrement(state) {
-      state.counter -= 1;
+    decrement(state, value) {
+      state.counter -= value;
     },
   },
 });

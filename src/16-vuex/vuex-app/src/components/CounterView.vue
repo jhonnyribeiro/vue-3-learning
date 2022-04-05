@@ -33,10 +33,10 @@ export default {
 
   methods: {
     increment() {
-      this.$store.commit("increment");
+      this.$store.commit("increment", 10);
     },
     decrement() {
-      this.$store.commit("decrement");
+      this.$store.commit("decrement", 10);
     },
   },
 };
