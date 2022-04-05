@@ -21,6 +21,9 @@ const routes = [
       console.log("from", from);
       next();
     },
+    meta: {
+      auth: true,
+    },
   },
   {
     path: "/empresa",
@@ -51,11 +54,17 @@ const router = createRouter({
   routes,
 });
 
+const isLogged = false;
+
 router.beforeEach((to, from, next) => {
-  console.log("beforeEach");
-  console.log("to", to);
-  console.log("from", from);
-  next();
+  if (to.meta.auth && !isLogged) {
+    next("/home");
+  } else {
+    console.log("beforeEach");
+    console.log("to", to);
+    console.log("from", from);
+    next();
+  }
 });
 
 router.afterEach((to, from) => {

@@ -18,7 +18,7 @@ export default {
     // this.$router.push({ name: "team"});
     // this.$router.push({ name: "team", query: { course: "vuejs" } });
     // this.$router.push({ name: "team", hash: "#vue" });
-    this.$router.push({ name: "team", params: { member: "jhow" } });
+    // this.$router.push({ name: "team", params: { member: "jhow" } });
   },
 
   methods: {},
