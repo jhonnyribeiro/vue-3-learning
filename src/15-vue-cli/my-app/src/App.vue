@@ -11,12 +11,19 @@
       >Equipe</router-link
     >
   </div>
+  <br />
+  <a href="" @click.stop.prevent="goBack()">Voltar</a>
   <router-view />
 </template>
 
 <script>
 export default {
   name: "App",
+  methods: {
+    goBack() {
+      this.$router.go(-1);
+    },
+  },
 };
 </script>
 
